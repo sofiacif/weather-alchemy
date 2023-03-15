@@ -102,4 +102,20 @@ a:hover {
 }
 #weather-img-bg {
   height: 100%;
+  padding: 5%;
+  min-height: 100%;
+  max-height: 100%;
+}
+.weather-temp {
+  color: white;
+  font-family: "roc-grotesk-variable", sans-serif;
+  font-variation-settings: "wght" 500, "wdth" 100;
+  letter-spacing: 5px;
+  font-size: calc(2rem + 2vw);
+}
+.weather-description {
+  color: white;
+  font-size: calc(1rem + 1vw);
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
