@@ -4,7 +4,7 @@ import Search from "./Search";
 
 function App() {
   return (
-    <div className="container">
+    <div>
       <div className="d-flex justify-content-center">
         <img src={logo} className="App-logo text-center mt-5" alt="logo" />
       </div>
