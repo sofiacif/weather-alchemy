@@ -123,32 +123,43 @@ export default function Search() {
     const { imgLink, iconLink } = imgMapping[weatherIcon];
     setWeatherImg(imgLink);
     setWeatherIcon(iconLink);
-    setTemperature(response.data.temp);
+
     setWeatherDescription(response.data.condition.description);
-    console.log(weatherIcon);
+
+    setTemperature(Math.round(response.data.temperature.current));
   }
 
-  function displayWeather(event) {
+  function handleSubmit(event) {
     event.preventDefault();
+    search();
+  }
+  function search(response) {
     axios.get(api).then(updateWeather);
+    console.log(response.data);
   }
 
   return (
     <div style={{ minHeight: "100%" }}>
-      <div className="d-flex mt-5 justify-content-center">
-        <input
-          type="text"
-          placeholder="enter a city"
-          className="search-box"
-          onChange={updateCity}
-        ></input>
-
-        <input
-          type="submit"
-          value="search"
-          className="search-button"
-          onSubmit={displayWeather}
-        ></input>
+      <div className="d-flex mt-3 justify-content-center">
+        <form onSubmit={handleSubmit}>
+          <div class="row gx-5">
+            <div class="col-md-6 text-center mt-3">
+              <input
+                type="text"
+                placeholder="enter a city"
+                className="search-box"
+                onChange={updateCity}
+              ></input>
+            </div>
+            <div class="col-md-6 text-center mt-3">
+              <input
+                type="submit"
+                value="search"
+                className="search-button"
+              ></input>
+            </div>
+          </div>
+        </form>
       </div>
       <p className="text-center mt-4 metrics">
         <a href="/">METRIC</a> /{" "}

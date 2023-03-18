@@ -41,11 +41,9 @@ h2 {
 }
 .search-box {
   border: var(--main-color) 2px solid;
-  width: 20%;
   height: 3rem;
   padding: 15px;
   border-radius: 5px;
-  margin-right: 1.5em;
 }
 
 ::placeholder {
