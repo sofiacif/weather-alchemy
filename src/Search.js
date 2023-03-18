@@ -24,6 +24,14 @@ export default function Search() {
   function updateUnits(event) {
     event.preventDefault();
     setUnits("imperial");
+    axios.get(api).then(updateWeather);
+    console.log(units);
+  }
+
+  function updateCelsius(event) {
+    event.preventDefault();
+    setUnits("metric");
+    axios.get(api).then(updateWeather);
     console.log(units);
   }
   function updateWeather(response) {
@@ -123,9 +131,7 @@ export default function Search() {
     const { imgLink, iconLink } = imgMapping[weatherIcon];
     setWeatherImg(imgLink);
     setWeatherIcon(iconLink);
-
     setWeatherDescription(response.data.condition.description);
-
     setTemperature(Math.round(response.data.temperature.current));
   }
 
@@ -162,7 +168,10 @@ export default function Search() {
         </form>
       </div>
       <p className="text-center mt-4 metrics">
-        <a href="/">METRIC</a> /{" "}
+        <a href="/" onClick={updateCelsius}>
+          METRIC
+        </a>{" "}
+        /{" "}
         <a href="/" onClick={updateUnits}>
           IMPERIAL
         </a>
