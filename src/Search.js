@@ -5,7 +5,7 @@ import earth from "./icons/earth.svg";
 import fire from "./icons/fire.svg";
 import water from "./icons/water.svg";
 
-export default function Search() {
+export default function Search(props) {
   const [city, setCity] = useState("");
   const [units, setUnits] = useState("metric");
   const [weatherImg, setWeatherImg] = useState(
@@ -138,6 +138,8 @@ export default function Search() {
   function handleSubmit(event) {
     event.preventDefault();
     search();
+    props.onWeatherImgChange(weatherImg);
+    console.log(weatherImg);
   }
   function search(response) {
     axios.get(api).then(updateWeather);
@@ -178,7 +180,7 @@ export default function Search() {
       </p>
       <div
         className="bg-image align-items-center justify-content-center height-full"
-        style={{ backgroundImage: `url(${weatherImg})` }}
+        //style={{ backgroundImage: `url(${weatherImg})` }}
         id="weather-img-bg"
       >
         <div className="text-center p-5">

@@ -82,7 +82,7 @@ input[type="text"] {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 500;
-  background-color: var(--dark-color);
+  background-color: transparent;
 }
 a {
   text-decoration: none;
